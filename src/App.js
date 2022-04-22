@@ -1,23 +1,50 @@
-import logo from './logo.svg';
+import Comment from './Comment/Comment';
 import './App.css';
 
 function App() {
+  const comment = [
+    {
+      date: new Date(),
+      text: 'I hope you enjoy learning React!',
+      author: {
+        name: 'Hello Kitty',
+        avatarUrl: 'http://placekitten.com/g/62/62',
+      },
+    },
+    {
+      date: new Date(),
+      text: 'I hope you enjoy learning React!',
+      author: {
+        name: 'Hello Kitty',
+        avatarUrl: 'http://placekitten.com/g/64/64',
+      },
+    },
+    {
+      date: new Date(),
+      text: 'I hope you enjoy learning React!',
+      author: {
+        name: 'Hello Kitty',
+        avatarUrl: 'http://placekitten.com/g/64/64',
+      },
+    },
+  ];
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        {/* {comment.forEach((item,i)=>{
+    item.id 
+  })}
+  {console.log(comment)} */}
+
+  {comment.map((element,i)=>{
+    element.id = i + 1
+    return(
+          <Comment  author={element.author} text={element.text} date={element.date} key={element.id} />
+    )
+  })}
+
+
+
     </div>
   );
 }
